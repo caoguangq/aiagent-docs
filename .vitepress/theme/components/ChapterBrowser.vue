@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { withBase } from 'vitepress'
 import data from '../../chapters.json'
 
 const keyword = ref('')
@@ -91,7 +92,7 @@ onMounted(() => {
     <div class="browser__grid">
       <article v-for="chapter in visible" :key="chapter.num" class="card">
         <header class="card__head">
-          <a class="card__title" :href="chapter.docs[0]?.link ?? '/'">
+          <a class="card__title" :href="withBase(chapter.docs[0]?.link ?? '/')">
             <span class="card__num">{{ String(chapter.num).padStart(2, '0') }}</span>
             {{ chapter.title }}
           </a>
@@ -102,7 +103,7 @@ onMounted(() => {
 
         <ul v-else class="card__docs">
           <li v-for="doc in shownDocs(chapter)" :key="doc.rel">
-            <a :href="doc.link">{{ doc.title }}</a>
+            <a :href="withBase(doc.link)">{{ doc.title }}</a>
           </li>
         </ul>
 

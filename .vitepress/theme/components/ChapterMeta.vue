@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 import data from '../../chapters.json'
 
 const { page } = useData()
@@ -12,7 +12,7 @@ const chapter = computed(() =>
 
 <template>
   <div v-if="chapter" class="chapter-meta">
-    <a class="chapter-meta__chapter" href="/#chapters">
+    <a class="chapter-meta__chapter" :href="withBase('/#chapters')">
       第{{ String(chapter.num).padStart(2, '0') }} 章 · {{ chapter.title }}
     </a>
     <span class="chapter-meta__count">{{ chapter.docs.length }} 篇</span>
@@ -20,7 +20,7 @@ const chapter = computed(() =>
       v-for="tag in chapter.tags"
       :key="tag"
       class="chapter-meta__tag"
-      :href="`/#tag-${encodeURIComponent(tag)}`"
+      :href="withBase(`/#tag-${encodeURIComponent(tag)}`)"
       >{{ tag }}</a
     >
   </div>
