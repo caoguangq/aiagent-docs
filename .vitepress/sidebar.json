@@ -1,0 +1,1342 @@
+{
+  "/02_学前必看/": {
+    "text": "02 学前必看",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅课程介绍",
+        "link": "/02_学前必看/✅课程介绍"
+      },
+      {
+        "text": "✅【重要】课程如何答疑？",
+        "link": "/02_学前必看/✅【重要】课程如何答疑？"
+      },
+      {
+        "text": "✅重要说明！！！！",
+        "link": "/02_学前必看/✅重要说明！！！！"
+      },
+      {
+        "text": "✅【重要】代码如何下载？",
+        "link": "/02_学前必看/✅【重要】代码如何下载？"
+      },
+      {
+        "text": "✅【重要】课程交流群！必加！！！",
+        "link": "/02_学前必看/✅【重要】课程交流群！必加！！！"
+      }
+    ]
+  },
+  "/03_代码介绍&应用启动/": {
+    "text": "03 代码介绍&应用启动",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅代码目录结构",
+        "link": "/03_代码介绍&应用启动/✅代码目录结构"
+      },
+      {
+        "text": "✅应用如何启动",
+        "link": "/03_代码介绍&应用启动/✅应用如何启动"
+      }
+    ]
+  },
+  "/04_大模型开发概述/": {
+    "text": "04 大模型开发概述",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅行业趋势与岗位需求分析",
+        "link": "/04_大模型开发概述/✅行业趋势与岗位需求分析"
+      },
+      {
+        "text": "✅什么是大模型？",
+        "link": "/04_大模型开发概述/✅什么是大模型？"
+      },
+      {
+        "text": "✅大模型的工作原理？",
+        "link": "/04_大模型开发概述/✅大模型的工作原理？"
+      },
+      {
+        "text": "✅Java 在大模型应用开发中的优势",
+        "link": "/04_大模型开发概述/✅Java 在大模型应用开发中的优势"
+      },
+      {
+        "text": "✅大模型应用开发常用的平台",
+        "link": "/04_大模型开发概述/✅大模型应用开发常用的平台"
+      },
+      {
+        "text": "✅百炼介绍与基本使用",
+        "link": "/04_大模型开发概述/✅百炼介绍与基本使用"
+      },
+      {
+        "text": "✅基于Ollama部署本地模型",
+        "link": "/04_大模型开发概述/✅基于Ollama部署本地模型"
+      },
+      {
+        "text": "✅大模型的局限性以及常见解决方案",
+        "link": "/04_大模型开发概述/✅大模型的局限性以及常见解决方案"
+      },
+      {
+        "text": "✅LLM HelloWorld",
+        "link": "/04_大模型开发概述/✅LLM HelloWorld"
+      }
+    ]
+  },
+  "/05_提示词工程/": {
+    "text": "05 提示词工程",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是Prompt?",
+        "link": "/05_提示词工程/✅什么是Prompt_"
+      },
+      {
+        "text": "✅如何设计Prompt？",
+        "link": "/05_提示词工程/✅如何设计Prompt？"
+      },
+      {
+        "text": "✅高阶Prompt优化方法",
+        "link": "/05_提示词工程/✅高阶Prompt优化方法"
+      },
+      {
+        "text": "✅结构化Prompt框架",
+        "link": "/05_提示词工程/✅结构化Prompt框架"
+      },
+      {
+        "text": "✅Prompt评测方法",
+        "link": "/05_提示词工程/✅Prompt评测方法"
+      },
+      {
+        "text": "✅nof1提示词工程案例",
+        "link": "/05_提示词工程/✅nof1提示词工程案例"
+      },
+      {
+        "text": "✅理解 OpenAI API",
+        "link": "/05_提示词工程/✅理解 OpenAI API"
+      }
+    ]
+  },
+  "/06_初探Spring AI/": {
+    "text": "06 初探Spring AI",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅Java中大模型调用的多种方式",
+        "link": "/06_初探Spring AI/✅Java中大模型调用的多种方式"
+      },
+      {
+        "text": "✅基于SSE实现大模型流式输出",
+        "link": "/06_初探Spring AI/✅基于SSE实现大模型流式输出"
+      },
+      {
+        "text": "✅LLM应用开发框架：LangChain",
+        "link": "/06_初探Spring AI/✅LLM应用开发框架：LangChain"
+      },
+      {
+        "text": "✅接入Spring AI 与Spring AI Alibaba",
+        "link": "/06_初探Spring AI/✅接入Spring AI 与Spring AI Alibaba"
+      },
+      {
+        "text": "✅开发必备的Spring AI核心概念",
+        "link": "/06_初探Spring AI/✅开发必备的Spring AI核心概念"
+      },
+      {
+        "text": "✅Spring AI 核心特性：提示词工程",
+        "link": "/06_初探Spring AI/✅Spring AI 核心特性：提示词工程"
+      },
+      {
+        "text": "✅Spring AI 核心特性：流式输出",
+        "link": "/06_初探Spring AI/✅Spring AI 核心特性：流式输出"
+      },
+      {
+        "text": "✅Spring AI 核心特性：提示词模板管理",
+        "link": "/06_初探Spring AI/✅Spring AI 核心特性：提示词模板管理"
+      },
+      {
+        "text": "✅Spring AI 核心特性：结构化输出",
+        "link": "/06_初探Spring AI/✅Spring AI 核心特性：结构化输出"
+      },
+      {
+        "text": "✅Spring AI 核心特性：对话记忆",
+        "link": "/06_初探Spring AI/✅Spring AI 核心特性：对话记忆"
+      },
+      {
+        "text": "✅Spring AI 记忆管理技术：持久化记忆",
+        "link": "/06_初探Spring AI/✅Spring AI 记忆管理技术：持久化记忆"
+      },
+      {
+        "text": "✅Spring AI 核心特性：Advisor",
+        "link": "/06_初探Spring AI/✅Spring AI 核心特性：Advisor"
+      },
+      {
+        "text": "✅Spring AI 核心特性：调用本地模型",
+        "link": "/06_初探Spring AI/✅Spring AI 核心特性：调用本地模型"
+      }
+    ]
+  },
+  "/07_LangChain4j/": {
+    "text": "07 LangChain4j",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅初识LangChain4j",
+        "link": "/07_LangChain4j/✅初识LangChain4j"
+      },
+      {
+        "text": "✅LangChain4J低层次API使用",
+        "link": "/07_LangChain4j/✅LangChain4J低层次API使用"
+      },
+      {
+        "text": "✅LangChain4J高层次API使用",
+        "link": "/07_LangChain4j/✅LangChain4J高层次API使用"
+      },
+      {
+        "text": "✅@AIService实现原理",
+        "link": "/07_LangChain4j/✅@AIService实现原理"
+      },
+      {
+        "text": "✅LangChain4J中实现持久化记忆",
+        "link": "/07_LangChain4j/✅LangChain4J中实现持久化记忆"
+      },
+      {
+        "text": "✅Spring AI & Spring AI Alibaba & Langchain4j",
+        "link": "/07_LangChain4j/✅Spring AI & Spring AI Alibaba & Langchain4j"
+      }
+    ]
+  },
+  "/08_Function Call/": {
+    "text": "08 Function Call",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是Function Call?",
+        "link": "/08_Function Call/✅什么是Function Call_"
+      },
+      {
+        "text": "✅如何定义一个好的Function（Tool）？",
+        "link": "/08_Function Call/✅如何定义一个好的Function（Tool）？"
+      },
+      {
+        "text": "✅使用Spring AI做Function Call",
+        "link": "/08_Function Call/✅使用Spring AI做Function Call"
+      },
+      {
+        "text": "✅Spring AI中的Tool Calling怎么实现的",
+        "link": "/08_Function Call/✅Spring AI中的Tool Calling怎么实现的"
+      },
+      {
+        "text": "✅实战：仿PDD自动帮买家申请退款",
+        "link": "/08_Function Call/✅实战：仿PDD自动帮买家申请退款"
+      }
+    ]
+  },
+  "/09_MCP/": {
+    "text": "09 MCP",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是MCP？",
+        "link": "/09_MCP/✅什么是MCP？"
+      },
+      {
+        "text": "✅深入理解MCP技术原理（上）",
+        "link": "/09_MCP/✅深入理解MCP技术原理（上）"
+      },
+      {
+        "text": "✅深入理解MCP技术原理（下）",
+        "link": "/09_MCP/✅深入理解MCP技术原理（下）"
+      },
+      {
+        "text": "✅深入理解MCP技术原理（中）",
+        "link": "/09_MCP/✅深入理解MCP技术原理（中）"
+      },
+      {
+        "text": "✅实战：使用Spring AI开发MCP Server",
+        "link": "/09_MCP/✅实战：使用Spring AI开发MCP Server"
+      },
+      {
+        "text": "✅实战：使用Spring AI开发MCP Client",
+        "link": "/09_MCP/✅实战：使用Spring AI开发MCP Client"
+      },
+      {
+        "text": "✅Spring AI MCP 调用实现原理",
+        "link": "/09_MCP/✅Spring AI MCP 调用实现原理"
+      },
+      {
+        "text": "✅SSE MCP Server如何实现重连？",
+        "link": "/09_MCP/✅SSE MCP Server如何实现重连？"
+      },
+      {
+        "text": "✅将 MCP 改造为 HTTPS",
+        "link": "/09_MCP/✅将 MCP 改造为 HTTPS"
+      },
+      {
+        "text": "✅MCP 如何实现认证鉴权",
+        "link": "/09_MCP/✅MCP 如何实现认证鉴权"
+      },
+      {
+        "text": "✅神奇的 context-path",
+        "link": "/09_MCP/✅神奇的 context-path"
+      },
+      {
+        "text": "✅MCP 调试工具",
+        "link": "/09_MCP/✅MCP 调试工具"
+      },
+      {
+        "text": "✅如何跳过 MCP 的模型总结",
+        "link": "/09_MCP/✅如何跳过 MCP 的模型总结"
+      },
+      {
+        "text": "✅如何实现 MCP 工具过滤",
+        "link": "/09_MCP/✅如何实现 MCP 工具过滤"
+      },
+      {
+        "text": "✅MCP与其他协议的区别",
+        "link": "/09_MCP/✅MCP与其他协议的区别"
+      }
+    ]
+  },
+  "/10_RAG/": {
+    "text": "10 RAG",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是RAG？",
+        "link": "/10_RAG/✅什么是RAG？"
+      },
+      {
+        "text": "✅深入理解RAG技术原理——索引构建",
+        "link": "/10_RAG/✅深入理解RAG技术原理——索引构建"
+      },
+      {
+        "text": "✅深入理解RAG技术原理——检索生成",
+        "link": "/10_RAG/✅深入理解RAG技术原理——检索生成"
+      },
+      {
+        "text": "✅使用 LlamaIndex 构建一个简单的RAG系统",
+        "link": "/10_RAG/✅使用 LlamaIndex 构建一个简单的RAG系统"
+      },
+      {
+        "text": "✅RAG的范式演进",
+        "link": "/10_RAG/✅RAG的范式演进"
+      },
+      {
+        "text": "✅文档预处理",
+        "link": "/10_RAG/✅文档预处理"
+      },
+      {
+        "text": "✅常见文档分片方式",
+        "link": "/10_RAG/✅常见文档分片方式"
+      },
+      {
+        "text": "✅什么是父子分片？",
+        "link": "/10_RAG/✅什么是父子分片？"
+      },
+      {
+        "text": "✅文档分片的代码实现",
+        "link": "/10_RAG/✅文档分片的代码实现"
+      },
+      {
+        "text": "✅（选学）自定义支持父子分片的基于Markdown标题的分片器",
+        "link": "/10_RAG/✅（选学）自定义支持父子分片的基于Markdown标题的分片器"
+      },
+      {
+        "text": "✅（选学）自定义支持父子分片的基于Word标题的分片器",
+        "link": "/10_RAG/✅（选学）自定义支持父子分片的基于Word标题的分片器"
+      },
+      {
+        "text": "✅向量模型&向量数据库&向量存储",
+        "link": "/10_RAG/✅向量模型&向量数据库&向量存储"
+      },
+      {
+        "text": "✅向量数据库如何选型？",
+        "link": "/10_RAG/✅向量数据库如何选型？"
+      },
+      {
+        "text": "✅如何使用离线向量模型",
+        "link": "/10_RAG/✅如何使用离线向量模型"
+      },
+      {
+        "text": "✅索引构建流程（ETL）总结与查缺补漏",
+        "link": "/10_RAG/✅索引构建流程（ETL）总结与查缺补漏"
+      },
+      {
+        "text": "✅检索增强生成",
+        "link": "/10_RAG/✅检索增强生成"
+      },
+      {
+        "text": "✅Spring AI 和 LangChain4J中文档处理功能对比",
+        "link": "/10_RAG/✅Spring AI 和 LangChain4J中文档处理功能对比"
+      },
+      {
+        "text": "✅RAG优化技术：元数据过滤",
+        "link": "/10_RAG/✅RAG优化技术：元数据过滤"
+      },
+      {
+        "text": "✅RAG优化技术：问题改写",
+        "link": "/10_RAG/✅RAG优化技术：问题改写"
+      },
+      {
+        "text": "✅RAG优化技术：查询路由",
+        "link": "/10_RAG/✅RAG优化技术：查询路由"
+      },
+      {
+        "text": "✅RAG优化技术：查询构造",
+        "link": "/10_RAG/✅RAG优化技术：查询构造"
+      },
+      {
+        "text": "✅RAG优化技术：问题澄清",
+        "link": "/10_RAG/✅RAG优化技术：问题澄清"
+      },
+      {
+        "text": "✅RAG优化技术：HyDE",
+        "link": "/10_RAG/✅RAG优化技术：HyDE"
+      },
+      {
+        "text": "✅RAG优化技术：混合检索",
+        "link": "/10_RAG/✅RAG优化技术：混合检索"
+      },
+      {
+        "text": "✅RAG优化技术：重排序",
+        "link": "/10_RAG/✅RAG优化技术：重排序"
+      },
+      {
+        "text": "✅RAG优化技术：Graph RAG",
+        "link": "/10_RAG/✅RAG优化技术：Graph RAG"
+      },
+      {
+        "text": "✅Spring AI中的Modular RAG支持",
+        "link": "/10_RAG/✅Spring AI中的Modular RAG支持"
+      },
+      {
+        "text": "✅LangChain4J中的Modular RAG支持",
+        "link": "/10_RAG/✅LangChain4J中的Modular RAG支持"
+      },
+      {
+        "text": "✅基于LangChain4J实现简单的RAG检索",
+        "link": "/10_RAG/✅基于LangChain4J实现简单的RAG检索"
+      },
+      {
+        "text": "✅Spring AI 和 LangChain4J的模块化RAG功能对比",
+        "link": "/10_RAG/✅Spring AI 和 LangChain4J的模块化RAG功能对比"
+      },
+      {
+        "text": "✅多模态RAG",
+        "link": "/10_RAG/✅多模态RAG"
+      },
+      {
+        "text": "✅实战：多模态RAG智能问答系统",
+        "link": "/10_RAG/✅实战：多模态RAG智能问答系统"
+      },
+      {
+        "text": "✅相似度搜索的常见算法",
+        "link": "/10_RAG/✅相似度搜索的常见算法"
+      }
+    ]
+  },
+  "/12_Workflow/": {
+    "text": "11 Workflow",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅本地部署Dify做工作流搭建",
+        "link": "/12_Workflow/✅本地部署Dify做工作流搭建"
+      },
+      {
+        "text": "✅初识Ai Workflow",
+        "link": "/12_Workflow/✅初识Ai Workflow"
+      },
+      {
+        "text": "✅工作流平台（Dify为例）中的常用组件",
+        "link": "/12_Workflow/✅工作流平台（Dify为例）中的常用组件"
+      },
+      {
+        "text": "✅工作流实战：舆情分析助手——爬虫工具firecrawl介绍",
+        "link": "/12_Workflow/✅工作流实战：舆情分析助手——爬虫工具firecrawl介绍"
+      },
+      {
+        "text": "✅工作流实战：舆情分析助手——数据保存与更新",
+        "link": "/12_Workflow/✅工作流实战：舆情分析助手——数据保存与更新"
+      },
+      {
+        "text": "✅工作流实战：舆情分析助手——微博内容提取",
+        "link": "/12_Workflow/✅工作流实战：舆情分析助手——微博内容提取"
+      },
+      {
+        "text": "✅工作流实战：舆情分析助手——整体流程",
+        "link": "/12_Workflow/✅工作流实战：舆情分析助手——整体流程"
+      },
+      {
+        "text": "✅工作流实战：舆情分析助手——LLM节点做舆情分析",
+        "link": "/12_Workflow/✅工作流实战：舆情分析助手——LLM节点做舆情分析"
+      },
+      {
+        "text": "✅工作流实战：舆情分析助手——N8N配置firecrawl实现分页爬取",
+        "link": "/12_Workflow/✅工作流实战：舆情分析助手——N8N配置firecrawl实现分页爬取"
+      },
+      {
+        "text": "✅基于Dify实现Ai Workflow",
+        "link": "/12_Workflow/✅基于Dify实现Ai Workflow"
+      },
+      {
+        "text": "✅什么是n8n？",
+        "link": "/12_Workflow/✅什么是n8n？"
+      },
+      {
+        "text": "✅使用 LangGraph 构建一个Ai Workflow",
+        "link": "/12_Workflow/✅使用 LangGraph 构建一个Ai Workflow"
+      },
+      {
+        "text": "✅使用LangGraph实现一个Agentic Workflow",
+        "link": "/12_Workflow/✅使用LangGraph实现一个Agentic Workflow"
+      },
+      {
+        "text": "✅Agent、AI Workflow、Agentic Workflow傻傻分不清楚？",
+        "link": "/12_Workflow/✅Agent、AI Workflow、Agentic Workflow傻傻分不清楚？"
+      },
+      {
+        "text": "✅Agentic Workflow",
+        "link": "/12_Workflow/✅Agentic Workflow"
+      },
+      {
+        "text": "✅Dify & N8N & Coze & FastGPT对比",
+        "link": "/12_Workflow/✅Dify & N8N & Coze & FastGPT对比"
+      },
+      {
+        "text": "✅Dify进阶：插件开发",
+        "link": "/12_Workflow/✅Dify进阶：插件开发"
+      },
+      {
+        "text": "✅Dify进阶：API调用",
+        "link": "/12_Workflow/✅Dify进阶：API调用"
+      },
+      {
+        "text": "✅Dify进阶：MCP的使用",
+        "link": "/12_Workflow/✅Dify进阶：MCP的使用"
+      },
+      {
+        "text": "✅Dify进阶：RAG的使用",
+        "link": "/12_Workflow/✅Dify进阶：RAG的使用"
+      },
+      {
+        "text": "✅Spring AI Alibaba Graph的使用",
+        "link": "/12_Workflow/✅Spring AI Alibaba Graph的使用"
+      },
+      {
+        "text": "✅Workflow VS Agent",
+        "link": "/12_Workflow/✅Workflow VS Agent"
+      }
+    ]
+  },
+  "/11_Agent/": {
+    "text": "12 Agent",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是AI Agent？",
+        "link": "/11_Agent/✅什么是AI Agent？"
+      },
+      {
+        "text": "✅常用的Agent开发框架",
+        "link": "/11_Agent/✅常用的Agent开发框架"
+      },
+      {
+        "text": "✅Agent常用架构：ReAct Agent",
+        "link": "/11_Agent/✅Agent常用架构：ReAct Agent"
+      },
+      {
+        "text": "✅React Agent的实现方式？",
+        "link": "/11_Agent/✅React Agent的实现方式？"
+      },
+      {
+        "text": "✅Alibaba-React Agent 初探",
+        "link": "/11_Agent/✅Alibaba-React Agent 初探"
+      },
+      {
+        "text": "✅Alibaba-React Agent 核心组件",
+        "link": "/11_Agent/✅Alibaba-React Agent 核心组件"
+      },
+      {
+        "text": "✅如何给Agent增加持久化记忆",
+        "link": "/11_Agent/✅如何给Agent增加持久化记忆"
+      },
+      {
+        "text": "✅深入理解 Alibaba-React Agent 原理",
+        "link": "/11_Agent/✅深入理解 Alibaba-React Agent 原理"
+      },
+      {
+        "text": "✅Agent常用架构：Plan and Execute Agent",
+        "link": "/11_Agent/✅Agent常用架构：Plan and Execute Agent"
+      },
+      {
+        "text": "✅Agent常用架构：Reflection Agent",
+        "link": "/11_Agent/✅Agent常用架构：Reflection Agent"
+      },
+      {
+        "text": "✅Agent常用架构：Human in the Loop",
+        "link": "/11_Agent/✅Agent常用架构：Human in the Loop"
+      },
+      {
+        "text": "✅Agent常用架构：Multi Agent",
+        "link": "/11_Agent/✅Agent常用架构：Multi Agent"
+      },
+      {
+        "text": "✅使用AutoGen 构建一个代码生成器",
+        "link": "/11_Agent/✅使用AutoGen 构建一个代码生成器"
+      },
+      {
+        "text": "✅Spring AI Alibaba中的多智能体支持",
+        "link": "/11_Agent/✅Spring AI Alibaba中的多智能体支持"
+      },
+      {
+        "text": "✅多智能体协议——A2A",
+        "link": "/11_Agent/✅多智能体协议——A2A"
+      },
+      {
+        "text": "✅实战一：手搓 ReactAgent（非流式）",
+        "link": "/11_Agent/✅实战一：手搓 ReactAgent（非流式）"
+      },
+      {
+        "text": "✅实战一：手搓 ReactAgent（流式）",
+        "link": "/11_Agent/✅实战一：手搓 ReactAgent（流式）"
+      },
+      {
+        "text": "✅ReAct Agent 流式输出后续问题",
+        "link": "/11_Agent/✅ReAct Agent 流式输出后续问题"
+      },
+      {
+        "text": "✅实战二：手搓 ReflectionAgent",
+        "link": "/11_Agent/✅实战二：手搓 ReflectionAgent"
+      },
+      {
+        "text": "✅实战三：手搓 PlanExecuteAgent（上）",
+        "link": "/11_Agent/✅实战三：手搓 PlanExecuteAgent（上）"
+      },
+      {
+        "text": "✅实战三：手搓 PlanExecuteAgent（下）",
+        "link": "/11_Agent/✅实战三：手搓 PlanExecuteAgent（下）"
+      },
+      {
+        "text": "✅实战四：手搓 Human in the Loop",
+        "link": "/11_Agent/✅实战四：手搓 Human in the Loop"
+      },
+      {
+        "text": "✅Agent常用架构：ReWOO&LLMCompiler（选学）",
+        "link": "/11_Agent/✅Agent常用架构：ReWOO&LLMCompiler（选学）"
+      }
+    ]
+  },
+  "/13_上下文工程/": {
+    "text": "13 上下文工程",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是Context，和Memory、Prompt、Token之间的区别？",
+        "link": "/13_上下文工程/✅什么是Context，和Memory、Prompt、Token之间的区别？"
+      },
+      {
+        "text": "✅上下文太长会带来什么问题？",
+        "link": "/13_上下文工程/✅上下文太长会带来什么问题？"
+      },
+      {
+        "text": "✅什么是上下文工程？",
+        "link": "/13_上下文工程/✅什么是上下文工程？"
+      },
+      {
+        "text": "✅实战：Manus的上下文工程实践",
+        "link": "/13_上下文工程/✅实战：Manus的上下文工程实践"
+      }
+    ]
+  },
+  "/14_长期记忆/": {
+    "text": "14 长期记忆",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是长期记忆",
+        "link": "/14_长期记忆/✅什么是长期记忆"
+      },
+      {
+        "text": "✅长期记忆实现方案——Mem0",
+        "link": "/14_长期记忆/✅长期记忆实现方案——Mem0"
+      },
+      {
+        "text": "✅Mem0的实现原理",
+        "link": "/14_长期记忆/✅Mem0的实现原理"
+      },
+      {
+        "text": "✅Spring AI Alibaba接入Mem0做长期记忆",
+        "link": "/14_长期记忆/✅Spring AI Alibaba接入Mem0做长期记忆"
+      }
+    ]
+  },
+  "/16_Skills/": {
+    "text": "15 Skills",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅什么是Agent Skills，为什么需要他？",
+        "link": "/16_Skills/✅什么是Agent Skills，为什么需要他？"
+      },
+      {
+        "text": "✅Skill的渐进式披露",
+        "link": "/16_Skills/✅Skill的渐进式披露"
+      },
+      {
+        "text": "✅一些好用的Skills推荐",
+        "link": "/16_Skills/✅一些好用的Skills推荐"
+      },
+      {
+        "text": "✅Claude Code中如何使用Skills",
+        "link": "/16_Skills/✅Claude Code中如何使用Skills"
+      },
+      {
+        "text": "✅实战：开发一个简历评估的Skill",
+        "link": "/16_Skills/✅实战：开发一个简历评估的Skill"
+      },
+      {
+        "text": "✅简历评估Skills讲解",
+        "link": "/16_Skills/✅简历评估Skills讲解"
+      },
+      {
+        "text": "✅SpringAI中如何使用Skill？（Agent）",
+        "link": "/16_Skills/✅SpringAI中如何使用Skill？（Agent）"
+      },
+      {
+        "text": "✅SpringAI中如何使用Skill？（ChatClient）",
+        "link": "/16_Skills/✅SpringAI中如何使用Skill？（ChatClient）"
+      },
+      {
+        "text": "✅OpenCode（CC的开源版）中的Skills的实现原理",
+        "link": "/16_Skills/✅OpenCode（CC的开源版）中的Skills的实现原理"
+      },
+      {
+        "text": "✅Spring AI中Skill集成的实现原理",
+        "link": "/16_Skills/✅Spring AI中Skill集成的实现原理"
+      },
+      {
+        "text": "✅Agent Skills的安全问题",
+        "link": "/16_Skills/✅Agent Skills的安全问题"
+      },
+      {
+        "text": "✅Claude Code中的Skills实现原理",
+        "link": "/16_Skills/✅Claude Code中的Skills实现原理"
+      },
+      {
+        "text": "✅Hermes Agent的Skill自进化机制",
+        "link": "/16_Skills/✅Hermes Agent的Skill自进化机制"
+      }
+    ]
+  },
+  "/17_AgentScope（更新中）/": {
+    "text": "16 AgentScope（更新中）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅AgentScope Java特性：流式输出、结构化输出、超时与重试、执行控制",
+        "link": "/17_AgentScope（更新中）/✅AgentScope Java特性：流式输出、结构化输出、超时与重试、执行控制"
+      },
+      {
+        "text": "✅实战：实现AgentScope的三层记忆体系",
+        "link": "/17_AgentScope（更新中）/✅实战：实现AgentScope的三层记忆体系"
+      },
+      {
+        "text": "✅AgentScope初探",
+        "link": "/17_AgentScope（更新中）/✅AgentScope初探"
+      },
+      {
+        "text": "✅AgentScope Java特性：工具集成",
+        "link": "/17_AgentScope（更新中）/✅AgentScope Java特性：工具集成"
+      },
+      {
+        "text": "✅AgentScope Java特性：MCP接入",
+        "link": "/17_AgentScope（更新中）/✅AgentScope Java特性：MCP接入"
+      },
+      {
+        "text": "✅AgentScope Java特性：多轮会话&会话持久化",
+        "link": "/17_AgentScope（更新中）/✅AgentScope Java特性：多轮会话&会话持久化"
+      },
+      {
+        "text": "✅AgentScope Java特性：长期记忆",
+        "link": "/17_AgentScope（更新中）/✅AgentScope Java特性：长期记忆"
+      },
+      {
+        "text": "✅AgentScope Java特性：智能上下文压缩",
+        "link": "/17_AgentScope（更新中）/✅AgentScope Java特性：智能上下文压缩"
+      },
+      {
+        "text": "✅AgentScope Java特性：RAG",
+        "link": "/17_AgentScope（更新中）/✅AgentScope Java特性：RAG"
+      },
+      {
+        "text": "AgentScope Java中ReactAgent的实现原理",
+        "link": "/17_AgentScope（更新中）/AgentScope Java中ReactAgent的实现原理"
+      }
+    ]
+  },
+  "/15_Harness（更新中）/": {
+    "text": "17 Harness（更新中）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅如何实现Harness Engineering",
+        "link": "/15_Harness（更新中）/✅如何实现Harness Engineering"
+      },
+      {
+        "text": "✅什么是Harness Engineering？",
+        "link": "/15_Harness（更新中）/✅什么是Harness Engineering？"
+      },
+      {
+        "text": "✅以AI Coding为例说明Harness Engineering",
+        "link": "/15_Harness（更新中）/✅以AI Coding为例说明Harness Engineering"
+      }
+    ]
+  },
+  "/19_项目实战1（dodo-agent）/": {
+    "text": "18 项目实战1（dodo-agent）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅整体架构与功能点介绍",
+        "link": "/19_项目实战1（dodo-agent）/✅整体架构与功能点介绍"
+      },
+      {
+        "text": "✅项目运行说明",
+        "link": "/19_项目实战1（dodo-agent）/✅项目运行说明"
+      },
+      {
+        "text": "✅智能对话：从需求分析到技术落地",
+        "link": "/19_项目实战1（dodo-agent）/✅智能对话：从需求分析到技术落地"
+      },
+      {
+        "text": "✅流式控制与任务管理",
+        "link": "/19_项目实战1（dodo-agent）/✅流式控制与任务管理"
+      },
+      {
+        "text": "✅流式响应的一些重要概念",
+        "link": "/19_项目实战1（dodo-agent）/✅流式响应的一些重要概念"
+      },
+      {
+        "text": "✅文件问答助手如何实现？",
+        "link": "/19_项目实战1（dodo-agent）/✅文件问答助手如何实现？"
+      },
+      {
+        "text": "✅大文件如何处理？",
+        "link": "/19_项目实战1（dodo-agent）/✅大文件如何处理？"
+      },
+      {
+        "text": "✅智能体生成PPT的几种方式",
+        "link": "/19_项目实战1（dodo-agent）/✅智能体生成PPT的几种方式"
+      },
+      {
+        "text": "✅模板填充 PPT 需求分析",
+        "link": "/19_项目实战1（dodo-agent）/✅模板填充 PPT 需求分析"
+      },
+      {
+        "text": "✅PPT 生成智能体",
+        "link": "/19_项目实战1（dodo-agent）/✅PPT 生成智能体"
+      },
+      {
+        "text": "✅如何输出稳定的PPT？",
+        "link": "/19_项目实战1（dodo-agent）/✅如何输出稳定的PPT？"
+      },
+      {
+        "text": "✅用Python-PPTX渲染出PPT",
+        "link": "/19_项目实战1（dodo-agent）/✅用Python-PPTX渲染出PPT"
+      },
+      {
+        "text": "✅PPT生成失败策略与断点恢复",
+        "link": "/19_项目实战1（dodo-agent）/✅PPT生成失败策略与断点恢复"
+      },
+      {
+        "text": "✅实现 DeepResearch（上）",
+        "link": "/19_项目实战1（dodo-agent）/✅实现 DeepResearch（上）"
+      },
+      {
+        "text": "✅实现 DeepResearch（下）",
+        "link": "/19_项目实战1（dodo-agent）/✅实现 DeepResearch（下）"
+      },
+      {
+        "text": "✅Agent Skills到底是如何实现的？",
+        "link": "/19_项目实战1（dodo-agent）/✅Agent Skills到底是如何实现的？"
+      },
+      {
+        "text": "✅智能体如何拥有操作系统的能力？",
+        "link": "/19_项目实战1（dodo-agent）/✅智能体如何拥有操作系统的能力？"
+      },
+      {
+        "text": "✅spring-ai-agent-utils中的skills",
+        "link": "/19_项目实战1（dodo-agent）/✅spring-ai-agent-utils中的skills"
+      },
+      {
+        "text": "✅Think模型与输出解析",
+        "link": "/19_项目实战1（dodo-agent）/✅Think模型与输出解析"
+      },
+      {
+        "text": "✅分阶段流式输出",
+        "link": "/19_项目实战1（dodo-agent）/✅分阶段流式输出"
+      },
+      {
+        "text": "✅重写 PPTX Skill",
+        "link": "/19_项目实战1（dodo-agent）/✅重写 PPTX Skill"
+      },
+      {
+        "text": "✅上下文压缩：micro_compact",
+        "link": "/19_项目实战1（dodo-agent）/✅上下文压缩：micro_compact"
+      },
+      {
+        "text": "✅上下文压缩：auto_compact",
+        "link": "/19_项目实战1（dodo-agent）/✅上下文压缩：auto_compact"
+      },
+      {
+        "text": "✅多实例Agent任务管理改造",
+        "link": "/19_项目实战1（dodo-agent）/✅多实例Agent任务管理改造"
+      },
+      {
+        "text": "✅前端的一些相关工作",
+        "link": "/19_项目实战1（dodo-agent）/✅前端的一些相关工作"
+      }
+    ]
+  },
+  "/20_项目实战2（know-engine）（更新中）/": {
+    "text": "19 项目实战2（know-engine）（更新中）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅项目亮点与设计原则",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅项目亮点与设计原则"
+      },
+      {
+        "text": "✅项目整体架构与核心功能",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅项目整体架构与核心功能"
+      },
+      {
+        "text": "✅技术选型",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅技术选型"
+      },
+      {
+        "text": "✅为什么不用Java解析PDF文档",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅为什么不用Java解析PDF文档"
+      },
+      {
+        "text": "✅为什么选择MinerU解析文档？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅为什么选择MinerU解析文档？"
+      },
+      {
+        "text": "✅MinerU文档处理功能实现",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅MinerU文档处理功能实现"
+      },
+      {
+        "text": "✅文档索引构建流程——文档上传",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅文档索引构建流程——文档上传"
+      },
+      {
+        "text": "✅项目如何启动&快速开始",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅项目如何启动&快速开始"
+      },
+      {
+        "text": "✅在Java代码中把MinerU解析文档功能集成进来",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅在Java代码中把MinerU解析文档功能集成进来"
+      },
+      {
+        "text": "✅文档索引构建流程——文档切分",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅文档索引构建流程——文档切分"
+      },
+      {
+        "text": "✅chunkSize和overlap设置成多少比较合适？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅chunkSize和overlap设置成多少比较合适？"
+      },
+      {
+        "text": "✅解决MinerU解析无法获取图片的问题",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅解决MinerU解析无法获取图片的问题"
+      },
+      {
+        "text": "✅接入ElasticSearch做向量存储",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅接入ElasticSearch做向量存储"
+      },
+      {
+        "text": "✅文档索引构建流程——向量存储",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅文档索引构建流程——向量存储"
+      },
+      {
+        "text": "✅向量维度如何设置？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅向量维度如何设置？"
+      },
+      {
+        "text": "✅文档预处理阶段全流程讲解（事件驱动）",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅文档预处理阶段全流程讲解（事件驱动）"
+      },
+      {
+        "text": "✅XXL-JOB部署及用任务驱动文档处理流程",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅XXL-JOB部署及用任务驱动文档处理流程"
+      },
+      {
+        "text": "✅引入分布式锁解决文档处理的并发问题",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅引入分布式锁解决文档处理的并发问题"
+      },
+      {
+        "text": "✅分段批量插入性能优化",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅分段批量插入性能优化"
+      },
+      {
+        "text": "✅基于雪花算法生成唯一的chunkId",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅基于雪花算法生成唯一的chunkId"
+      },
+      {
+        "text": "✅项目中多种格式的文档处理？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅项目中多种格式的文档处理？"
+      },
+      {
+        "text": "✅表格&图片被拆分到多个分块如何解决？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅表格&图片被拆分到多个分块如何解决？"
+      },
+      {
+        "text": "✅Excel文件如何处理？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅Excel文件如何处理？"
+      },
+      {
+        "text": "✅对话相关表结构设计",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅对话相关表结构设计"
+      },
+      {
+        "text": "✅虚拟线程+flash模型生成对话标题摘要",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅虚拟线程+flash模型生成对话标题摘要"
+      },
+      {
+        "text": "✅意图识别如何实现？如何优化？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅意图识别如何实现？如何优化？"
+      },
+      {
+        "text": "✅项目中意图识别提示词的优化",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅项目中意图识别提示词的优化"
+      },
+      {
+        "text": "✅LangChain4J中的RAG执行流程",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅LangChain4J中的RAG执行流程"
+      },
+      {
+        "text": "✅如何针对用户的问题做重写？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅如何针对用户的问题做重写？"
+      },
+      {
+        "text": "✅如何实现查询路由——检索器路由？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅如何实现查询路由——检索器路由？"
+      },
+      {
+        "text": "✅混合检索如何实现？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅混合检索如何实现？"
+      },
+      {
+        "text": "✅自定义基于ElasticSearch的向量检索器",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅自定义基于ElasticSearch的向量检索器"
+      },
+      {
+        "text": "✅父子分段的切分和检索逻辑",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅父子分段的切分和检索逻辑"
+      },
+      {
+        "text": "✅多级缓存实现chunk的快速检索",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅多级缓存实现chunk的快速检索"
+      },
+      {
+        "text": "✅使用BGE-ReRanker针对检索结果做重排序",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅使用BGE-ReRanker针对检索结果做重排序"
+      },
+      {
+        "text": "✅根据不同的意图实现定制化提示词（单轮对话中版本）",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅根据不同的意图实现定制化提示词（单轮对话中版本）"
+      },
+      {
+        "text": "✅项目中问题回答全流程",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅项目中问题回答全流程"
+      },
+      {
+        "text": "✅如何把RAG的过程内容返回给用户",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅如何把RAG的过程内容返回给用户"
+      },
+      {
+        "text": "✅如何把引用文档内容返回给用户？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅如何把引用文档内容返回给用户？"
+      },
+      {
+        "text": "✅将模型返回的对话内容，保存在数据库中",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅将模型返回的对话内容，保存在数据库中"
+      },
+      {
+        "text": "✅基于langchain4j的多轮对话的实现",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅基于langchain4j的多轮对话的实现"
+      },
+      {
+        "text": "✅支持多轮对话后的问题重写踩坑与LLM对比",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅支持多轮对话后的问题重写踩坑与LLM对比"
+      },
+      {
+        "text": "✅根据不同的意图实现定制化提示词（多轮对话版本）",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅根据不同的意图实现定制化提示词（多轮对话版本）"
+      },
+      {
+        "text": "✅问题重写支持多轮对话",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅问题重写支持多轮对话"
+      },
+      {
+        "text": "✅如何基于text2sql实现关系型数据查询?",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅如何基于text2sql实现关系型数据查询_"
+      },
+      {
+        "text": "✅支持图片的召回和渲染",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅支持图片的召回和渲染"
+      },
+      {
+        "text": "✅RAG问题澄清——对话卡片的实现",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅RAG问题澄清——对话卡片的实现"
+      },
+      {
+        "text": "钉钉机器人接入做客服答疑",
+        "link": "/20_项目实战2（know-engine）（更新中）/钉钉机器人接入做客服答疑"
+      },
+      {
+        "text": "✅如何解决模型json格式输出不稳定问题？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅如何解决模型json格式输出不稳定问题？"
+      },
+      {
+        "text": "✅Chunk的metadata怎么设计的？怎么用？",
+        "link": "/20_项目实战2（know-engine）（更新中）/✅Chunk的metadata怎么设计的？怎么用？"
+      }
+    ]
+  },
+  "/21_RAG评测（更新中）/": {
+    "text": "20 RAG评测（更新中）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅为什么需要对RAG做评测？",
+        "link": "/21_RAG评测（更新中）/✅为什么需要对RAG做评测？"
+      },
+      {
+        "text": "✅RAG测评之RAG Triad",
+        "link": "/21_RAG评测（更新中）/✅RAG测评之RAG Triad"
+      },
+      {
+        "text": "✅RAG的核心评测指标有哪些？",
+        "link": "/21_RAG评测（更新中）/✅RAG的核心评测指标有哪些？"
+      },
+      {
+        "text": "✅主流RAG评测框架：RAGAS、TruLens、DeepEval、Phoenix",
+        "link": "/21_RAG评测（更新中）/✅主流RAG评测框架：RAGAS、TruLens、DeepEval、Phoenix"
+      },
+      {
+        "text": "✅LLM-as-a-Judge",
+        "link": "/21_RAG评测（更新中）/✅LLM-as-a-Judge"
+      },
+      {
+        "text": "✅RAGAS框架初探&实现原理",
+        "link": "/21_RAG评测（更新中）/✅RAGAS框架初探&实现原理"
+      },
+      {
+        "text": "✅RAGAS评测时，如何抑制模型幻觉导致的结果不稳定问题？",
+        "link": "/21_RAG评测（更新中）/✅RAGAS评测时，如何抑制模型幻觉导致的结果不稳定问题？"
+      },
+      {
+        "text": "✅怎样的评测集算是好的评测集？",
+        "link": "/21_RAG评测（更新中）/✅怎样的评测集算是好的评测集？"
+      },
+      {
+        "text": "✅RAG的评测数据集该如何准备？",
+        "link": "/21_RAG评测（更新中）/✅RAG的评测数据集该如何准备？"
+      },
+      {
+        "text": "✅基于文档生成用于评测的数据集",
+        "link": "/21_RAG评测（更新中）/✅基于文档生成用于评测的数据集"
+      },
+      {
+        "text": "✅针对问题生成RAG系统的回答",
+        "link": "/21_RAG评测（更新中）/✅针对问题生成RAG系统的回答"
+      },
+      {
+        "text": "✅评测脚本准备&开始运行评测",
+        "link": "/21_RAG评测（更新中）/✅评测脚本准备&开始运行评测"
+      },
+      {
+        "text": "✅如何获取know-engine的评测集",
+        "link": "/21_RAG评测（更新中）/✅如何获取know-engine的评测集"
+      },
+      {
+        "text": "✅解决中文分词不准确导致召回效果差的问题",
+        "link": "/21_RAG评测（更新中）/✅解决中文分词不准确导致召回效果差的问题"
+      },
+      {
+        "text": "✅解决问题重写导致的召回不准问题",
+        "link": "/21_RAG评测（更新中）/✅解决问题重写导致的召回不准问题"
+      },
+      {
+        "text": "✅解决mineru不支持多级标题解析的问题。",
+        "link": "/21_RAG评测（更新中）/✅解决mineru不支持多级标题解析的问题。"
+      },
+      {
+        "text": "✅解决引用信息补全导致参考资料乱序问题",
+        "link": "/21_RAG评测（更新中）/✅解决引用信息补全导致参考资料乱序问题"
+      },
+      {
+        "text": "✅解决RRF融合乱序和结果重复的问题",
+        "link": "/21_RAG评测（更新中）/✅解决RRF融合乱序和结果重复的问题"
+      },
+      {
+        "text": "✅通过 minScore 解决召回准确率低的问题",
+        "link": "/21_RAG评测（更新中）/✅通过 minScore 解决召回准确率低的问题"
+      },
+      {
+        "text": "✅通过修改ground truth，解决召回率低和答案准确率低的问题",
+        "link": "/21_RAG评测（更新中）/✅通过修改ground truth，解决召回率低和答案准确率低的问题"
+      },
+      {
+        "text": "✅通过优化系统提示词，提升答案正确性",
+        "link": "/21_RAG评测（更新中）/✅通过优化系统提示词，提升答案正确性"
+      },
+      {
+        "text": "✅通过换模型解决忠诚度低的问题",
+        "link": "/21_RAG评测（更新中）/✅通过换模型解决忠诚度低的问题"
+      },
+      {
+        "text": "✅增加分层拒答能力，减少错误回答发生",
+        "link": "/21_RAG评测（更新中）/✅增加分层拒答能力，减少错误回答发生"
+      },
+      {
+        "text": "【持续更新】know-engine评测问题与优化（bad case）",
+        "link": "/21_RAG评测（更新中）/【持续更新】know-engine评测问题与优化（bad case）"
+      },
+      {
+        "text": "✅RAGAS评测时，如何加速评测速度",
+        "link": "/21_RAG评测（更新中）/✅RAGAS评测时，如何加速评测速度"
+      },
+      {
+        "text": "RAG评测总结",
+        "link": "/21_RAG评测（更新中）/RAG评测总结"
+      }
+    ]
+  },
+  "/24_面试专用（通用）/": {
+    "text": "21 面试专用（通用）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "3年Agent面经",
+        "link": "/24_面试专用（通用）/3年Agent面经"
+      },
+      {
+        "text": "实习生面经（头部大厂）",
+        "link": "/24_面试专用（通用）/实习生面经（头部大厂）"
+      },
+      {
+        "text": "校招AI面经",
+        "link": "/24_面试专用（通用）/校招AI面经"
+      }
+    ]
+  },
+  "/25_面试专用（dodo-agent）/": {
+    "text": "22 面试专用（dodo-agent）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅简历模板——智能行业研究助手系统",
+        "link": "/25_面试专用（dodo-agent）/✅简历模板——智能行业研究助手系统"
+      },
+      {
+        "text": "✅简历模板——Java+大模型岗（社招）",
+        "link": "/25_面试专用（dodo-agent）/✅简历模板——Java+大模型岗（社招）"
+      },
+      {
+        "text": "✅简历模板——Java+大模型岗（校招）",
+        "link": "/25_面试专用（dodo-agent）/✅简历模板——Java+大模型岗（校招）"
+      },
+      {
+        "text": "✅简历模板——LLM应用开发岗（校招）",
+        "link": "/25_面试专用（dodo-agent）/✅简历模板——LLM应用开发岗（校招）"
+      },
+      {
+        "text": "✅dodo Agent 面试通关指南",
+        "link": "/25_面试专用（dodo-agent）/✅dodo Agent 面试通关指南"
+      }
+    ]
+  },
+  "/26_面试专用（know-engine）/": {
+    "text": "23 面试专用（know-engine）",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅简历模板-基于RAG的企业知识库在线问答系统",
+        "link": "/26_面试专用（know-engine）/✅简历模板-基于RAG的企业知识库在线问答系统"
+      },
+      {
+        "text": "✅简历模板——Java+大模型岗（通用）",
+        "link": "/26_面试专用（know-engine）/✅简历模板——Java+大模型岗（通用）"
+      }
+    ]
+  },
+  "/18_大模型微调/": {
+    "text": "24 大模型微调",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "✅大模型是怎么训练出来的？",
+        "link": "/18_大模型微调/✅大模型是怎么训练出来的？"
+      },
+      {
+        "text": "✅为什么需要大模型微调？",
+        "link": "/18_大模型微调/✅为什么需要大模型微调？"
+      },
+      {
+        "text": "✅大模型微调的方法",
+        "link": "/18_大模型微调/✅大模型微调的方法"
+      },
+      {
+        "text": "✅训练服务器准备",
+        "link": "/18_大模型微调/✅训练服务器准备"
+      },
+      {
+        "text": "✅训练框架选择",
+        "link": "/18_大模型微调/✅训练框架选择"
+      },
+      {
+        "text": "✅训练环境配置&踩坑记录",
+        "link": "/18_大模型微调/✅训练环境配置&踩坑记录"
+      },
+      {
+        "text": "✅数据集如何准备？",
+        "link": "/18_大模型微调/✅数据集如何准备？"
+      },
+      {
+        "text": "✅启动模型训练（上）",
+        "link": "/18_大模型微调/✅启动模型训练（上）"
+      },
+      {
+        "text": "✅启动模型训练（下）",
+        "link": "/18_大模型微调/✅启动模型训练（下）"
+      },
+      {
+        "text": "✅如何判断训练的好坏？",
+        "link": "/18_大模型微调/✅如何判断训练的好坏？"
+      },
+      {
+        "text": "✅如何部署大模型服务？",
+        "link": "/18_大模型微调/✅如何部署大模型服务？"
+      },
+      {
+        "text": "✅训练效果如何评测",
+        "link": "/18_大模型微调/✅训练效果如何评测"
+      },
+      {
+        "text": "✅评测我们的模型",
+        "link": "/18_大模型微调/✅评测我们的模型"
+      }
+    ]
+  },
+  "/23_加餐/": {
+    "text": "26 加餐",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Langchain & LlamaIndex & LangGraph & AutoGen",
+        "link": "/23_加餐/Langchain & LlamaIndex & LangGraph & AutoGen"
+      }
+    ]
+  }
+}

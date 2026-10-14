@@ -1,0 +1,14 @@
+/* 导出的文档里有大量长命令、日志与提示词，默认代码块不换行，
+   只能横向滚动，看起来就是一整团。这里改成软换行 + 放宽行距。 */
+:root {
+  --vp-code-line-height: 1.8;
+}
+
+.vp-doc div[class*='language-'] {
+  margin: 20px 0;
+}
+
+.vp-doc div[class*='language-'] code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

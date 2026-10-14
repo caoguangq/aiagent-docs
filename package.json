@@ -1,0 +1,17 @@
+{
+  "name": "aiagent-docs-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen": "node scripts/gen.mjs",
+    "predev": "node scripts/gen.mjs",
+    "dev": "vitepress dev",
+    "prebuild": "node scripts/gen.mjs",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
