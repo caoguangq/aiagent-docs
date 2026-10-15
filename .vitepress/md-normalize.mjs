@@ -61,6 +61,36 @@ export function escapeStrayHtml(md) {
   })
 }
 
+// 每篇文档开头的「> 原文链接：https://thoughts.aliyun.com/…」是导出留痕，
+// 页面不再展示；源 md 保留不动，只在渲染层删掉整个引用块。
+export function removeOriginLink(md) {
+  md.core.ruler.push('remove_origin_link', (state) => {
+    const tokens = state.tokens
+    for (let i = 0; i < tokens.length; i++) {
+      if (tokens[i].type !== 'blockquote_open') continue
+      let depth = 0
+      let close = i
+      for (; close < tokens.length; close++) {
+        if (tokens[close].type === 'blockquote_open') depth++
+        else if (tokens[close].type === 'blockquote_close' && !--depth) break
+      }
+      const inner = tokens.slice(i + 1, close)
+      const plain = inner.every((t) =>
+        ['paragraph_open', 'paragraph_close', 'inline'].includes(t.type)
+      )
+      const text = inner
+        .filter((t) => t.type === 'inline')
+        .map((t) => t.content)
+        .join('\n')
+        .trim()
+      if (plain && /^原文链接[：:]\s*https?:\/\//.test(text)) {
+        tokens.splice(i, close - i + 1)
+        i--
+      }
+    }
+  })
+}
+
 // 导出工具会在正文里同时写下 `# 标题` 和紧随其后的 `## 标题`，页面因此重复渲染同一个标题。
 // 这里删掉与首个 H1 同名的第一个 H2，保留源文档不动。
 export function removeDuplicateTitle(md) {

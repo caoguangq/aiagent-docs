@@ -7,6 +7,7 @@ import {
   fixEmptyTableHeaders,
   reflowCodeBlocks,
   removeDuplicateTitle,
+  removeOriginLink,
   rewriteMissingImages
 } from './md-normalize.mjs'
 
@@ -34,6 +35,7 @@ export default defineConfig({
       const srcDir = fileURLToPath(new URL('..', import.meta.url))
       md.use(escapeStrayHtml)
       md.use(fixEmptyTableHeaders)
+      md.use(removeOriginLink)
       md.use(removeDuplicateTitle)
       md.use(reflowCodeBlocks)
       md.use(rewriteMissingImages, { srcDir })
