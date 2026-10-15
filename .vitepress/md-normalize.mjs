@@ -388,5 +388,50 @@ export function rewriteMissingImages(md, { srcDir, placeholder = '/missing-image
       }
     }
     visit(state.tokens)
+
+    // 占位图是一块大盒子，和文字同处一段时（`![描述](地址) 这段内容…`）文字会紧贴盒子下沿，
+    // 而 CSS 选不到「元素后面跟着文本节点」，只能在 token 层把段落拆开。
+    const isPlaceholder = (token) =>
+      token.type === 'image' && (token.attrGet('src') ?? '').endsWith(placeholder)
+
+    const out = []
+    for (let i = 0; i < state.tokens.length; i++) {
+      const inline = state.tokens[i + 1]
+      if (state.tokens[i].type !== 'paragraph_open' || inline?.type !== 'inline') {
+        out.push(state.tokens[i])
+        continue
+      }
+      const idx = inline.children.findIndex(isPlaceholder)
+      const before = idx >= 0 ? inline.children.slice(0, idx) : inline.children
+      const after = idx >= 0 ? inline.children.slice(idx + 1) : []
+      // 只能裁掉空白文本与软换行：link_open 这类结构 token 的 content 也是空串，裁掉会留下没闭合的标签
+      const isBlank = (token) =>
+        token.type === 'softbreak' || (token.type === 'text' && !(token.content ?? '').trim())
+      while (before.length && isBlank(before[before.length - 1])) before.pop()
+      while (after.length && isBlank(after[0])) after.shift()
+      if (before.length && before[before.length - 1].type === 'text') {
+        before[before.length - 1].content = before[before.length - 1].content.trimEnd()
+      }
+      if (after.length && after[0].type === 'text') after[0].content = after[0].content.trimStart()
+      // 图片若嵌在链接/强调内部（[![](x)](y)），拆段会把标签对切断，这种情况保持原样
+      let depth = 0
+      for (const child of inline.children.slice(0, idx)) depth += child.nesting
+      if (idx < 0 || depth !== 0 || (!before.length && !after.length)) {
+        out.push(state.tokens[i])
+        continue
+      }
+      const para = (children) => {
+        const open = new state.Token('paragraph_open', 'p', 1)
+        const body = new state.Token('inline', '', 0)
+        body.children = children
+        body.content = children.map((child) => child.content ?? '').join('')
+        return [open, body, new state.Token('paragraph_close', 'p', -1)]
+      }
+      if (before.length) out.push(...para(before))
+      out.push(...para([inline.children[idx]]))
+      if (after.length) out.push(...para(after))
+      i += 2
+    }
+    state.tokens = out
   })
 }
