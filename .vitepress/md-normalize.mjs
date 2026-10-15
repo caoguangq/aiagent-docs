@@ -159,6 +159,67 @@ export function reflowCodeBlocks(md) {
   })
 }
 
+// 导出工具把表格头行写成只含竖号的空行（` |  | `），而 markdown-it 的表格规则
+// 拒绝表头全空的表格，132 张表因此全部退化成段落文本。真正的表头被挤在表体第一行
+// （如「对比项 | Spring AI | LangChain4J」）。解析前把表体首行提为表头、删掉空表头行。
+const TABLE_SEP = /^\s*\|?[\t ]*:?-{2,}:?[\t ]*(?:\|[\t ]*:?-{2,}:?[\t ]*)*\|?\s*$/
+
+function isEmptyHeaderRow(line) {
+  return line.includes('|') && line.split('|').every((cell) => !cell.trim())
+}
+
+function splitCells(line) {
+  const chunks = line.split(/(?<!\\)\|/)
+  if (chunks.length > 1 && line.trimEnd().endsWith('|')) chunks.pop()
+  return chunks
+}
+
+// markdown-it 对表头行的竖线写法与列数极其挑剔（前导空格+首格空、列数少于分隔行等
+// 都会整表退化成段落）。提升后的表头统一规范化成 `| a | b |` 标准形并对齐分隔行列数。
+function canonicalHeader(line, columnCount) {
+  let cells = splitCells(line)
+  if (cells.length === columnCount + 1 && !cells[0].trim()) cells.shift()
+  if (cells.length === columnCount - 1) cells.unshift('')
+  while (cells.length < columnCount) cells.push('')
+  if (cells.length > columnCount) cells = cells.slice(0, columnCount)
+  return `| ${cells.map((cell) => cell.trim()).join(' | ')} |`
+}
+
+function promoteTableHeaders(src) {
+  const lines = src.split(/\r?\n/)
+  const out = []
+  for (let i = 0; i < lines.length; i++) {
+    const sep = lines[i]
+    const header = out[out.length - 1]
+    const firstBody = lines[i + 1]
+    if (
+      TABLE_SEP.test(sep) &&
+      sep.includes('|') &&
+      header !== undefined &&
+      isEmptyHeaderRow(header) &&
+      firstBody !== undefined &&
+      firstBody.includes('|') &&
+      firstBody.trim()
+    ) {
+      const sepCells = splitCells(sep).map((cell) => cell.trim()).filter(Boolean)
+      out[out.length - 1] = canonicalHeader(firstBody, sepCells.length)
+      out.push(`| ${sepCells.join(' | ')} |`)
+      i++
+      continue
+    }
+    out.push(sep)
+  }
+  return out.join('\n')
+}
+
+export function fixEmptyTableHeaders(md) {
+  // 表格在 block 解析阶段就会因空表头被拒，只能在 parse 前改源文本
+  const original = md.parse
+  md.parse = function (src, env) {
+    return original.call(this, promoteTableHeaders(src), env)
+  }
+}
+
 // 导出工具留下的占位图片（![](xxx.png)、![图片](URL)）会被 Vite 当资源解析并让构建中断。
 export function rewriteMissingImages(md, { srcDir, placeholder = '/missing-image.svg' }) {
   md.core.ruler.push('fix_missing_images', (state) => {

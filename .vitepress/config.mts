@@ -4,6 +4,7 @@ import chapters from './chapters.json'
 import sidebar from './sidebar.json'
 import {
   escapeStrayHtml,
+  fixEmptyTableHeaders,
   reflowCodeBlocks,
   removeDuplicateTitle,
   rewriteMissingImages
@@ -32,6 +33,7 @@ export default defineConfig({
     config: (md) => {
       const srcDir = fileURLToPath(new URL('..', import.meta.url))
       md.use(escapeStrayHtml)
+      md.use(fixEmptyTableHeaders)
       md.use(removeDuplicateTitle)
       md.use(reflowCodeBlocks)
       md.use(rewriteMissingImages, { srcDir })
