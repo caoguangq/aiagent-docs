@@ -121,6 +121,12 @@ const CODE_LABELS = new Set([
   'sql', 'markdown', 'dockerfile', 'properties', 'ini', 'toml', 'go', 'rust', 'diff', 'log'
 ])
 
+// 语言标签粘在代码尾部时的形态（`…8192Shell`、`…[]}JSON`、`…模糊回答Python`）。
+// 用 lookbehind 要求它紧贴非空白字符：正文里以空格分隔的同名单词（--format json）不会被误删。
+const GLUED_LABELS = [
+  /(?<=\S)(?:Plain[ -]?Text|Java(?:Script)?|TypeScript|Python|Shell|Bash|JSON|YAML|XML|SQL)(?:\s|\uFEFF)*$/
+]
+
 function stripTrailingLabel(text) {
   const rows = text.split('\n')
   let changed = true
@@ -136,10 +142,11 @@ function stripTrailingLabel(text) {
       changed = true
       continue
     }
-    // 和正文粘在一起的标签，例如「…这里输入你的访问令牌Plain Text」
-    if (last.length > 10) {
-      const glued = last.replace(/(?:\s|\uFEFF)*(?:Plain[ -]?Text)+(?:\s|\uFEFF)*$/i, '')
-      if (glued !== last) {
+    // 和最后一行代码粘在一起的标签，例如「…这里输入你的访问令牌Plain Text」「…8192Shell」「…[]}JSON」
+    if (last.length) {
+      const row = rows[rows.length - 1]
+      const glued = GLUED_LABELS.reduce((text, pattern) => text.replace(pattern, ''), row)
+      if (glued !== row) {
         rows[rows.length - 1] = glued
         changed = true
       }
@@ -160,7 +167,94 @@ function isSplittableCode(line) {
 function splitFlattenedLine(line) {
   return line
     .replace(/(\\)(?=-)/g, '$1\n')
-    .replace(/(\S)( {2,})(?=\S)/g, (all, before, gap) => before + '\n' + gap)
+    // 导出工具把换行压平后留下的缩进分隔：Tab 或两个以上空格。
+    // 后面紧跟 = 的空格是对齐填充（baseUrl   = http://…），不是丢掉的换行，不能切。
+    .replace(/(\S)(\t+| {2,})(?=[^=\s])/g, (all, before, gap) => before + '\n' + gap)
+}
+
+// 还有 152 个代码块被压得连分隔空白都没留下（如 `…Definition();aiService.setBeanClass(…)`、
+// `…api-key={YOUR_KEY}langchain4j…model-name=…`），只能按语义边界断行。
+// 每条规则都要求切点前一个字符是非空白：正常书写的代码在这些边界后本来就跟着空格或换行，
+// 所以只会切在「粘连处」。规则只插入换行、不删改任何字符，代码仍可原样复制。
+const GLUE_RULES = [
+  // 日志行的时间戳
+  [/(?<=\S)(?=\d{2}:\d{2}:\d{2}[.,]\d{3}\s)/g, '\n'],
+  // Java 语句结尾：分号/右花括号后紧跟新语句
+  [/(?<=;)(?=[A-Za-z_@/])/g, '\n'],
+  [/(?<=\})(?=[A-Za-z_@])/g, '\n'],
+  // 右括号后紧跟修饰符、关键字或另一个方法签名
+  [/(?<=\))(?=(?:public|private|protected|static|final|abstract|return|if|for|while|try|catch|throw|new)\b)/g, '\n'],
+  [/(?<=\))(?=[A-Z]\w*(?:<[^>]*>)?\s+\w+\s*\()/g, '\n'],
+  // 注解与前一行粘在一起（@Autowired@Qualifier(...)）
+  [/(?<=[^\s(,=@"'])@(?=[A-Z])/g, '\n@'],
+  // 注解名后直接跟修饰符（@Overridepublic int getOrder()）
+  [/(@[A-Z]\w*?)(?=(?:public|private|protected|static|final|abstract|class|interface|enum|void|return)\b)/g, '$1\n'],
+  // 注解名后直接跟字段类型（@AutowiredOpenAiStreamingChatModel streamingChatModel;）
+  [/(@[A-Z][a-z]+)(?=[A-Z]\w*\s+\w+\s*[;=])/g, '$1\n'],
+  // XML/HTML 标签之间没有空白，或只剩一个空格
+  [/(?<=>)(?=<[A-Za-z!/?])/g, '\n'],
+  [/(?<=>)[ \t]+(?=<)/g, '\n'],
+  // 相邻的 JSON 对象
+  [/(?<=\})(?=\{\s*")/g, '\n'],
+  // Python 的 from x import y / import x
+  [/(?<=\S)(?=(?:from|import)\s+[\w.]+\s+import\b)/g, '\n'],
+  [/(?<=[^\s(])(?=import\s)/g, '\n'],
+  // 注释或上一句尾部粘住了赋值语句（…）documents = SimpleDirectoryReader(…)）
+  // 切点前必须是非单词字符，否则会落在 DASHSCOPE_API_KEY 这类标识符内部逐字符切
+  [/(?<=[^\w\s#(,])(?=[A-Za-z_]\w*\s*=\s)/g, '\n'],
+  // 右括号后紧跟下一个函数调用
+  [/(?<=\))(?=[a-z_]\w*\()/g, '\n'],
+  // RAG 分片示例里的 Chunk 序号
+  [/(?<=\S)(?=Chunk\s*\d+[：:])/g, '\n'],
+  // 连续 shell 命令粘连（uv init xcd x）
+  [/(?<=\S)(?=(?:cd|mkdir|source|uv|python3|python|pip3|pip|npm|npx|git|docker|java|mvn|echo|export|curl)\s)/g, '\n'],
+  // SSE 输出的一帧
+  [/(?<=\S)(?=data:\{)/g, '\n'],
+  // 行内注释（# 前不能是 #，避开 markdown 的 ## 标题）
+  [/(?<=[^\s#])(?=#\s)/g, '\n'],
+  // 流程图里的箭头
+  [/(?<=\S)(?=[↓↑])/g, '\n'],
+  // 行内注释与前面的代码粘在一起（.builder()// 1. xxx）；排除 http:// 与 Python 的 // 整除
+  [/(?<=[^\s:/"'])(?=\/\/[\s\u4e00-\u9fa5])/g, '\n'],
+  // 汉字后面直接跟一句声明（检索器EmbeddingStoreContentRetriever vectorRetriever = …）
+  [/(?<=[\u4e00-\u9fa5])(?=[A-Za-z_]\w*(?:<[^>]*>)?\s+\w+\s*[=(])/g, '\n'],
+  // 无序列表项（- 前不能是 -，避开 shell 的 --flag 与 SQL 的 -- 注释）
+  [/(?<=[^\s-])(?=-\s)/g, '\n'],
+  // 有序列表项（前面不能是单词字符，避开 answer2.text()；点号后不能是数字，避开 1.1.0.0）
+  [/(?<=[^\w\s.])(?=\d+\.(?!\d))/g, '\n']
+]
+
+function splitGluedLine(line) {
+  // 整行是被压平的块注释时，按 ` * ` 续行符复原（乘号写法不会出现在注释行首）
+  let out = /^\s*\/\*/.test(line) ? line.replace(/(?<=\S) (?=\*(?:\s|\/))/g, '\n ') : line
+  for (const [pattern, replacement] of GLUE_RULES) out = out.replace(pattern, replacement)
+  // 注释一定延伸到行尾，所以只在含 // 的行里把 `).方法(` 当成丢掉的换行
+  // （// 2. QueryTransformer - 查询转换器(可选).queryTransformer(queryTransformer)），
+  // 这样不会拆散正常写在一行的流式调用。
+  out = out
+    .split('\n')
+    .map((row) => (row.includes('//') ? row.replace(/(?<=\))(?=\.\w+\()/g, '\n') : row))
+    .join('\n')
+  // 断点恰好落在行首（或已存在的换行旁）时会多出空行，去掉
+  return out.replace(/^[ \t]*\n+/, '').replace(/\n{2,}/g, '\n')
+}
+
+// properties 的 key 常和前一个 value 粘在一起（model-name=qwen-max-latestlangchain4j.open-ai…），
+// 只看一行没法判断断点在哪。先收集「前面不是单词字符」的 key 作为样本，取出配置的首段前缀
+// （spring、langchain4j），再在每个 `前缀.` 处断行——粘连的 value 尾巴就留在上一行了。
+const PROPERTY_KEY = /[a-zA-Z][\w-]*(?:\.[\w-]+)+=/g
+
+function splitPropertyKeys(text) {
+  const prefixes = new Set()
+  for (const match of text.matchAll(PROPERTY_KEY)) {
+    // 紧贴 = 之后的是 value（key 已被粘进 value 里），紧贴单词字符的是被截断的 key，都不作样本
+    const before = text[match.index - 1]
+    const head = match[0].split('.')[0]
+    if (head.length >= 3 && (before === undefined || !/[\w=-]/.test(before))) prefixes.add(head)
+  }
+  if (!prefixes.size) return text
+  const heads = [...prefixes].sort((a, b) => b.length - a.length).join('|')
+  return text.replace(new RegExp(`(?<=\\S)((?:${heads})\\.)`, 'g'), '\n$1')
 }
 
 // 目录树/框图压成一行后，行首的 ─│├└ 连接符就是原来的换行位置：
@@ -175,14 +269,19 @@ export function reflowCodeBlocks(md) {
   md.core.ruler.push('reflow_code_blocks', (state) => {
     for (const token of state.tokens) {
       if (token.type !== 'fence') continue
-      // 整块被压成一行时按缩进复原；本身有正常换行的块只处理异常超长行，避免误伤排版好的代码。
+      // 整块被压成一行时换行已彻底丢失，按缩进分隔 + 语义边界复原（yaml/纯文本同样适用）；
+      // 本身有正常换行的块只处理异常超长行且保留代码特征判断，避免误伤排版好的代码。
       const flattened = token.content.split('\n').filter((line) => line.trim()).length <= 1
-      const minLen = flattened ? 60 : 200
-      const text = stripTrailingLabel(token.content.split('\uFEFF').join('\n'))
-      const rows = text.split('\n').map((line) => {
-        if (line.length < minLen) return line
-        if (/[\u2502\u251C\u2514]/.test(line)) return splitTreeLine(line)
-        return isSplittableCode(line) ? splitFlattenedLine(line) : line
+      const restored = stripTrailingLabel(token.content.split('\uFEFF').join('\n'))
+      const text = flattened ? splitPropertyKeys(restored) : restored
+      const rows = text.split('\n').flatMap((line) => {
+        if (flattened) {
+          if (/[\u2502\u251C\u2514]/.test(line)) return splitTreeLine(line).split('\n')
+          return splitGluedLine(splitFlattenedLine(line)).split('\n')
+        }
+        if (line.length < 200) return [line]
+        if (/[\u2502\u251C\u2514]/.test(line)) return splitTreeLine(line).split('\n')
+        return isSplittableCode(line) ? splitFlattenedLine(line).split('\n') : [line]
       })
       token.content = rows.length ? rows.join('\n') : '\n'
     }
@@ -242,11 +341,29 @@ function promoteTableHeaders(src) {
   return out.join('\n')
 }
 
+// 表格单元格里被压平的换行同样是 U+FEFF（`- 快速搭建聊天机器人﻿- 调用外部工具…`），
+// 但单元格不能放真换行，这里换成 <br>。代码块里的 U+FEFF 是 reflowCodeBlocks 复原分行的
+// 唯一依据，必须先跳过围栏区域，否则代码会被替换成 <br> 而彻底散架。
+function breakGluedTableCells(src) {
+  let inFence = false
+  return src
+    .split('\n')
+    .map((line) => {
+      if (/^\s*(?:```|~~~)/.test(line)) inFence = !inFence
+      if (inFence || !line.includes('|') || !line.includes('\uFEFF')) return line
+      return line
+        .replace(/\uFEFF[ \t]*/g, '<br>')
+        .replace(/\|[ \t]*<br>/g, '|')
+        .replace(/<br>[ \t]*\|/g, '|')
+    })
+    .join('\n')
+}
+
 export function fixEmptyTableHeaders(md) {
   // 表格在 block 解析阶段就会因空表头被拒，只能在 parse 前改源文本
   const original = md.parse
   md.parse = function (src, env) {
-    return original.call(this, promoteTableHeaders(src), env)
+    return original.call(this, promoteTableHeaders(breakGluedTableCells(src)), env)
   }
 }
 

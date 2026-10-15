@@ -7,8 +7,10 @@ import { createMarkdownRenderer } from 'vitepress/dist/node/index.js'
 import { parse } from '@vue/compiler-dom'
 import {
   escapeStrayHtml,
+  fixEmptyTableHeaders,
   reflowCodeBlocks,
   removeDuplicateTitle,
+  removeOriginLink,
   rewriteMissingImages
 } from '../.vitepress/md-normalize.mjs'
 
@@ -16,6 +18,8 @@ const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 // createMarkdownRenderer 不会执行自定义站点的 markdown.config，这里手动挂载同样的插件。
 const md = await createMarkdownRenderer({}, root, '/')
 md.use(escapeStrayHtml)
+md.use(fixEmptyTableHeaders)
+md.use(removeOriginLink)
 md.use(removeDuplicateTitle)
 md.use(reflowCodeBlocks)
 md.use(rewriteMissingImages, { srcDir: root })
