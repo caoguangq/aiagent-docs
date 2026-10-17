@@ -8,6 +8,7 @@ import { parse } from '@vue/compiler-dom'
 import {
   escapeStrayHtml,
   fixEmptyTableHeaders,
+  markCollidedImages,
   reflowCodeBlocks,
   removeDuplicateTitle,
   removeOriginLink,
@@ -22,6 +23,7 @@ md.use(fixEmptyTableHeaders)
 md.use(removeOriginLink)
 md.use(removeDuplicateTitle)
 md.use(reflowCodeBlocks)
+md.use(markCollidedImages, { srcDir: root })
 md.use(rewriteMissingImages, { srcDir: root })
 
 const files = fs

@@ -367,6 +367,93 @@ export function fixEmptyTableHeaders(md) {
   }
 }
 
+// 导出工具给每篇文档的图片都从 img_001 起编号，却统统写进章节共享的 images/ 目录，
+// 不同文档的同名图片于是互相覆盖：964 处本地引用里有 831 处指向被 ≥2 篇文档共用的文件，
+// 其中约 654 处显示的其实是别的文档的图，原图已随覆盖丢失。张冠李戴比缺图更误导，统一换成占位提示。
+const IMG_REF = /!\[[^\]]*\]\(\s*(\S+?)(?:\s+["'][^"']*["'])?\s*\)/g
+const NON_FILE_SRC = /^(?:\/|https?:|data:|mailto:|\/\/)/
+const COLLIDED_PLACEHOLDER = '/collided-image.svg'
+
+// markdown-it 渲染 image 时总会拿 children 渲染出的文本覆盖 alt 属性，
+// 想让占位图带上原始路径，只能把提示文字写进 children。
+function setAltText(state, token, alt) {
+  const text = new state.Token('text', '', 0)
+  text.content = alt
+  token.attrSet('alt', alt)
+  token.content = alt
+  token.children = [text]
+}
+
+// 围栏里的 `![](images/img_001.png)` 是 markdown 语法示例、行内代码同理，都不算这篇文档引用了该图
+function stripCodeRegions(src) {
+  let inFence = false
+  return src
+    .split('\n')
+    .map((line) => {
+      if (/^\s*(?:```|~~~)/.test(line)) {
+        inFence = !inFence
+        return ''
+      }
+      return inFence ? '' : line.replace(/`[^`]*`/g, (span) => ' '.repeat(span.length))
+    })
+    .join('\n')
+}
+
+function collectCollidedImages(srcDir) {
+  const owners = new Map()
+  for (const chapter of fs.readdirSync(srcDir, { withFileTypes: true })) {
+    if (!chapter.isDirectory() || !/^\d+_/.test(chapter.name)) continue
+    const chapterDir = path.join(srcDir, chapter.name)
+    for (const entry of fs.readdirSync(chapterDir, { withFileTypes: true })) {
+      if (!entry.isFile() || !entry.name.endsWith('.md')) continue
+      const doc = path.posix.join(chapter.name, entry.name)
+      const text = stripCodeRegions(fs.readFileSync(path.join(chapterDir, entry.name), 'utf8'))
+      for (const match of text.matchAll(IMG_REF)) {
+        const src = match[1]
+        // 绝对路径、外链不是导出产物；含汉字的地址（这是一个图片地址）本来就加载不出来
+        if (NON_FILE_SRC.test(src) || /[\u4e00-\u9fa5]/.test(src)) continue
+        const key = path.posix.normalize(path.posix.join(chapter.name, src))
+        const docs = owners.get(key)
+        if (docs) docs.add(doc)
+        else owners.set(key, new Set([doc]))
+      }
+    }
+  }
+  return new Set([...owners].filter(([, docs]) => docs.size > 1).map(([key]) => key))
+}
+
+export function markCollidedImages(md, { srcDir, placeholder = COLLIDED_PLACEHOLDER }) {
+  let collided
+  md.core.ruler.push('mark_collided_images', (state) => {
+    const file = state.env?.relativePath || state.env?.path
+    if (!file) return
+    collided ??= collectCollidedImages(srcDir)
+    const docDir = path.dirname(String(file).replace(/^\//, ''))
+
+    const visit = (tokens) => {
+      for (const token of tokens) {
+        if (token.type === 'image') {
+          const src = token.attrGet('src') ?? ''
+          // markdown-it 会把 src 里的非 ASCII 转义成 %XX，比对前先还原
+          let decoded = src
+          try {
+            decoded = decodeURI(src)
+          } catch {}
+          if (!NON_FILE_SRC.test(decoded)) {
+            const key = path.posix.normalize(path.posix.join(docDir, decoded))
+            if (collided.has(key)) {
+              token.attrSet('src', placeholder)
+              setAltText(state, token, `图片导出冲突：${decoded}`)
+            }
+          }
+        }
+        if (token.children) visit(token.children)
+      }
+    }
+    visit(state.tokens)
+  })
+}
+
 // 导出工具留下的占位图片（![](xxx.png)、![图片](URL)）会被 Vite 当资源解析并让构建中断。
 // 正文里还有一类「示例语法」：作者本意是展示 markdown 写法或模型虚构的内容
 // （把![](images/xxx.jpg)替换成…、模型虚构了【![图片](https://example.com/…)】），
@@ -390,10 +477,11 @@ export function rewriteMissingImages(md, { srcDir, placeholder = '/missing-image
             tokens[i] = code
             continue
           }
-          const external = /^(?:https?:\/\/|data:|\/\/|mailto:)/.test(src)
+          // 以 / 开头的是 public 下的占位图（markCollidedImages 刚替换上去的），别再当成缺失文件
+          const external = /^(?:https?:\/\/|data:|\/\/|mailto:)/.test(src) || src.startsWith('/')
           if (!external && !fs.existsSync(path.join(srcDir, docDir, src))) {
             token.attrSet('src', placeholder)
-            token.attrSet('alt', `图片缺失：${src}`)
+            setAltText(state, token, `图片缺失：${src}`)
           }
         }
         if (token.children) visit(token.children)
@@ -403,8 +491,9 @@ export function rewriteMissingImages(md, { srcDir, placeholder = '/missing-image
 
     // 占位图是一块大盒子，和文字同处一段时（`![描述](地址) 这段内容…`）文字会紧贴盒子下沿，
     // 而 CSS 选不到「元素后面跟着文本节点」，只能在 token 层把段落拆开。
+    const PLACEHOLDERS = [placeholder, COLLIDED_PLACEHOLDER]
     const isPlaceholder = (token) =>
-      token.type === 'image' && (token.attrGet('src') ?? '').endsWith(placeholder)
+      token.type === 'image' && PLACEHOLDERS.includes(token.attrGet('src') ?? '')
 
     const out = []
     for (let i = 0; i < state.tokens.length; i++) {

@@ -5,6 +5,7 @@ import sidebar from './sidebar.json'
 import {
   escapeStrayHtml,
   fixEmptyTableHeaders,
+  markCollidedImages,
   reflowCodeBlocks,
   removeDuplicateTitle,
   removeOriginLink,
@@ -38,6 +39,7 @@ export default defineConfig({
       md.use(removeOriginLink)
       md.use(removeDuplicateTitle)
       md.use(reflowCodeBlocks)
+      md.use(markCollidedImages, { srcDir })
       md.use(rewriteMissingImages, { srcDir })
     }
   },
