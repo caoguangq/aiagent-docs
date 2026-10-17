@@ -368,6 +368,11 @@ export function fixEmptyTableHeaders(md) {
 }
 
 // 导出工具留下的占位图片（![](xxx.png)、![图片](URL)）会被 Vite 当资源解析并让构建中断。
+// 正文里还有一类「示例语法」：作者本意是展示 markdown 写法或模型虚构的内容
+// （把![](images/xxx.jpg)替换成…、模型虚构了【![图片](https://example.com/…)】），
+// 这些不该去加载也不该显示占位盒子，还原成行内代码最贴合原意。
+const EXAMPLE_SRC = /(?:^|[/_\-.])x{3}(?:[/_\-.]|$)|^https?:(?!\/\/)|^(?:https?:\/\/)?(?:www\.)?example\.(?:com|org|net|co)\b/i
+
 export function rewriteMissingImages(md, { srcDir, placeholder = '/missing-image.svg' }) {
   md.core.ruler.push('fix_missing_images', (state) => {
     const file = state.env?.relativePath || state.env?.path
@@ -375,9 +380,16 @@ export function rewriteMissingImages(md, { srcDir, placeholder = '/missing-image
     const docDir = path.dirname(String(file).replace(/^\//, ''))
 
     const visit = (tokens) => {
-      for (const token of tokens) {
+      for (let i = 0; i < tokens.length; i++) {
+        const token = tokens[i]
         if (token.type === 'image') {
           const src = token.attrGet('src') ?? ''
+          if (EXAMPLE_SRC.test(src)) {
+            const code = new state.Token('code_inline', 'code', 0)
+            code.content = `![${token.content}](${src})`
+            tokens[i] = code
+            continue
+          }
           const external = /^(?:https?:\/\/|data:|\/\/|mailto:)/.test(src)
           if (!external && !fs.existsSync(path.join(srcDir, docDir, src))) {
             token.attrSet('src', placeholder)
